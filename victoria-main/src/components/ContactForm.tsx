@@ -1,9 +1,12 @@
 export default function ContactForm() {
   return (
-    <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-black">
+    <section id="contact" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-white">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 text-center text-white">Get in Touch</h2>
-        <div className="w-24 h-1 bg-orange-500 mx-auto mb-12"></div>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 text-center text-gray-900">Get in Touch</h2>
+        <div className="w-24 h-1 bg-orange-500 mx-auto mb-4"></div>
+        <p className="text-center text-gray-600 mb-12 text-lg">
+          Ready to elevate your property management experience? Contact us today.
+        </p>
 
         <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="space-y-6">
           <input type="hidden" name="form-name" value="contact" />
@@ -13,7 +16,7 @@ export default function ContactForm() {
             </label>
           </p>
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
               Name *
             </label>
             <input
@@ -21,12 +24,12 @@ export default function ContactForm() {
               id="name"
               name="name"
               required
-              className="w-full px-4 py-3 border border-gray-600 bg-gray-900 text-white rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all outline-none"
+              className="w-full px-4 py-3 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all outline-none"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
               Email *
             </label>
             <input
@@ -34,12 +37,12 @@ export default function ContactForm() {
               id="email"
               name="email"
               required
-              className="w-full px-4 py-3 border border-gray-600 bg-gray-900 text-white rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all outline-none"
+              className="w-full px-4 py-3 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all outline-none"
             />
           </div>
 
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
               Phone *
             </label>
             <input
@@ -47,12 +50,12 @@ export default function ContactForm() {
               id="phone"
               name="phone"
               required
-              className="w-full px-4 py-3 border border-gray-600 bg-gray-900 text-white rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all outline-none"
+              className="w-full px-4 py-3 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all outline-none"
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
               Message *
             </label>
             <textarea
@@ -60,13 +63,13 @@ export default function ContactForm() {
               name="message"
               required
               rows={6}
-              className="w-full px-4 py-3 border border-gray-600 bg-gray-900 text-white rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all outline-none resize-none"
+              className="w-full px-4 py-3 border border-gray-300 bg-white text-gray-900 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all outline-none resize-none"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-orange-500 text-white py-4 px-8 rounded-md hover:bg-orange-600 transition-all duration-300 font-medium text-lg"
+            className="w-full bg-orange-500 text-white py-4 px-8 rounded-md hover:bg-orange-600 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-xl"
           >
             Send Message
           </button>
