@@ -91,25 +91,29 @@ export default function Testimonials() {
         </h2>
 
         <div className="relative">
-          <button
-            onClick={goToPrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 sm:-translate-x-16 z-20 p-3 rounded-full bg-orange-500/20 hover:bg-orange-500/40 border border-orange-500/40 transition-all duration-300 group"
-            aria-label="Previous testimonial"
-          >
-            <svg className="w-6 h-6 text-orange-500 group-hover:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
+          {currentIndex > 0 && (
+            <button
+              onClick={goToPrevious}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-12 md:-translate-x-16 z-20 p-2 sm:p-3 rounded-full bg-orange-500/20 hover:bg-orange-500/40 border border-orange-500/40 transition-all duration-300 group"
+              aria-label="Previous testimonial"
+            >
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-orange-500 group-hover:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+          )}
 
-          <button
-            onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 sm:translate-x-16 z-20 p-3 rounded-full bg-orange-500/20 hover:bg-orange-500/40 border border-orange-500/40 transition-all duration-300 group"
-            aria-label="Next testimonial"
-          >
-            <svg className="w-6 h-6 text-orange-500 group-hover:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+          {currentIndex < testimonials.length - 1 && (
+            <button
+              onClick={goToNext}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-12 md:translate-x-16 z-20 p-2 sm:p-3 rounded-full bg-orange-500/20 hover:bg-orange-500/40 border border-orange-500/40 transition-all duration-300 group"
+              aria-label="Next testimonial"
+            >
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-orange-500 group-hover:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          )}
 
         <div className="bg-gradient-to-br from-gray-900/50 to-blue-950/30 backdrop-blur-sm border border-orange-500/20 rounded-lg p-8 sm:p-12 shadow-2xl min-h-[400px] flex flex-col justify-between">
           <div className="mb-8">
