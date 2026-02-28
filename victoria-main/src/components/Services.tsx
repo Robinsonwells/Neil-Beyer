@@ -65,29 +65,6 @@ export default function Services() {
             </div>
           ))}
         </div>
-
-        <div className="mt-16 bg-gradient-to-r from-blue-950 to-gray-900 rounded-2xl p-8 sm:p-12 text-center text-white">
-          <h3 className="text-2xl md:text-3xl font-light mb-4">Why Choose ELEPHAS?</h3>
-          <div className="w-16 h-1 bg-orange-500 mx-auto mb-8"></div>
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">Expertise</div>
-              <p className="text-gray-300 text-sm">Industry experience navigating complexities</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">Personalized</div>
-              <p className="text-gray-300 text-sm">Customized strategies for your objectives</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">Professional</div>
-              <p className="text-gray-300 text-sm">High standards of integrity and transparency</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">Results-Driven</div>
-              <p className="text-gray-300 text-sm">Maximizing returns, minimizing vacancies</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
