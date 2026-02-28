@@ -1,5 +1,9 @@
+import { useState } from 'react';
+
 export default function Services() {
-  const services = [
+  const [activeTab, setActiveTab] = useState<'owners' | 'renters'>('owners');
+
+  const ownerServices = [
     {
       title: "Property Marketing & Tenant Placement",
       description: "We feature your properties on major rental websites with thorough tenant vetting to ensure quality occupants.",
@@ -32,6 +36,41 @@ export default function Services() {
     }
   ];
 
+  const renterServices = [
+    {
+      title: "Property Search Assistance",
+      description: "Access to a curated selection of quality rental properties that match your preferences and budget.",
+      icon: "🔍"
+    },
+    {
+      title: "Responsive Maintenance",
+      description: "Quick response to maintenance requests with our network of professional contractors and repair specialists.",
+      icon: "🛠️"
+    },
+    {
+      title: "Transparent Communication",
+      description: "Clear and timely communication for all your rental needs, questions, and concerns.",
+      icon: "💬"
+    },
+    {
+      title: "Flexible Lease Options",
+      description: "Various lease terms and options to accommodate your lifestyle and timeline requirements.",
+      icon: "📝"
+    },
+    {
+      title: "24/7 Emergency Line",
+      description: "Round-the-clock emergency support to address urgent issues and ensure your safety and comfort.",
+      icon: "📞"
+    },
+    {
+      title: "Move-In Support",
+      description: "Comprehensive move-in assistance including property walkthroughs and orientation to your new home.",
+      icon: "🏠"
+    }
+  ];
+
+  const services = activeTab === 'owners' ? ownerServices : renterServices;
+
   return (
     <section id="services" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-black via-gray-900 to-blue-950 relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
@@ -43,9 +82,34 @@ export default function Services() {
           Our Services
         </h2>
         <div className="w-24 h-1 bg-orange-500 mx-auto mb-4"></div>
-        <p className="text-center text-gray-300 max-w-3xl mx-auto mb-16 text-lg">
+        <p className="text-center text-gray-300 max-w-3xl mx-auto mb-12 text-lg">
           Comprehensive property management solutions tailored to your unique needs
         </p>
+
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex rounded-lg bg-gray-900/50 p-1 backdrop-blur-sm border border-orange-500/30">
+            <button
+              onClick={() => setActiveTab('owners')}
+              className={`px-8 py-3 rounded-md font-medium transition-all duration-300 ${
+                activeTab === 'owners'
+                  ? 'bg-orange-500 text-white shadow-lg'
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              For Owners
+            </button>
+            <button
+              onClick={() => setActiveTab('renters')}
+              className={`px-8 py-3 rounded-md font-medium transition-all duration-300 ${
+                activeTab === 'renters'
+                  ? 'bg-orange-500 text-white shadow-lg'
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              For Renters
+            </button>
+          </div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
