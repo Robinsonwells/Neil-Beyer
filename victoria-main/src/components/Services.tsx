@@ -28,72 +28,6 @@ export default function Services() {
     };
   }, []);
 
-  const ownerServices = [
-    {
-      title: "Property Marketing & Tenant Placement",
-      description: "We feature your properties on major rental websites with thorough tenant vetting to ensure quality occupants.",
-      icon: "🏘️"
-    },
-    {
-      title: "Maintenance & Repairs Coordination",
-      description: "Established vendor network including electricians, plumbers, and contractors to keep your property in top condition.",
-      icon: "🔧"
-    },
-    {
-      title: "Rent Collection & Financial Reporting",
-      description: "Streamlined rent collection processes with transparent financial reporting to keep you informed.",
-      icon: "💰"
-    },
-    {
-      title: "Lease Administration & Legal Compliance",
-      description: "Professional lease management ensuring regulatory adherence and protecting your investment.",
-      icon: "📋"
-    },
-    {
-      title: "24/7 Emergency Support",
-      description: "Round-the-clock response for urgent issues to protect your property and maintain tenant satisfaction.",
-      icon: "🚨"
-    },
-    {
-      title: "Investment Maximization",
-      description: "Results-driven approach focused on maximizing returns and minimizing vacancies for property owners.",
-      icon: "📈"
-    }
-  ];
-
-  const renterServices = [
-    {
-      title: "Property Search Assistance",
-      description: "Access to a curated selection of quality rental properties that match your preferences and budget.",
-      icon: "🔍"
-    },
-    {
-      title: "Responsive Maintenance",
-      description: "Quick response to maintenance requests with our network of professional contractors and repair specialists.",
-      icon: "🛠️"
-    },
-    {
-      title: "Transparent Communication",
-      description: "Clear and timely communication for all your rental needs, questions, and concerns.",
-      icon: "💬"
-    },
-    {
-      title: "Flexible Lease Options",
-      description: "Various lease terms and options to accommodate your lifestyle and timeline requirements.",
-      icon: "📝"
-    },
-    {
-      title: "24/7 Emergency Line",
-      description: "Round-the-clock emergency support to address urgent issues and ensure your safety and comfort.",
-      icon: "📞"
-    },
-    {
-      title: "Move-In Support",
-      description: "Comprehensive move-in assistance including property walkthroughs and orientation to your new home.",
-      icon: "🏠"
-    }
-  ];
-
   const ownerTakeCareOf = [
     "Listing your property on all major rental platforms",
     "Professional photography and virtual tours",
@@ -120,7 +54,6 @@ export default function Services() {
     "Resolving any property-related issues"
   ];
 
-  const services = activeTab === 'owners' ? ownerServices : renterServices;
   const takeCareOfList = activeTab === 'owners' ? ownerTakeCareOf : renterTakeCareOf;
 
   return (
@@ -161,25 +94,6 @@ export default function Services() {
               For Renters
             </button>
           </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="group bg-gradient-to-br from-gray-900/50 to-blue-950/30 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 border border-orange-500/20 hover:border-orange-500/50"
-            >
-              <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-orange-400 transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-gray-300 leading-relaxed">
-                {service.description}
-              </p>
-            </div>
-          ))}
         </div>
 
         <div ref={sectionRef} className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
