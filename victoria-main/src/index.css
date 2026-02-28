@@ -23,6 +23,7 @@ html {
 .signature path {
   stroke: white;
   stroke-width: 1.5;
+  fill: none;
   animation: draw ease forwards;
   animation-play-state: running;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
