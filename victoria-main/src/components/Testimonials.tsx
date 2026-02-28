@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const testimonials = [
   {
@@ -19,8 +19,35 @@ export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
+  const [hasStartedTyping, setHasStartedTyping] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+            setHasStartedTyping(true);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!hasStartedTyping) return;
+
     const currentTestimonial = testimonials[currentIndex].text;
     let currentChar = 0;
 
@@ -42,10 +69,10 @@ export default function Testimonials() {
     }, 20);
 
     return () => clearInterval(typingInterval);
-  }, [currentIndex]);
+  }, [currentIndex, hasStartedTyping]);
 
   return (
-    <section className="py-20 px-4 sm:px-6 bg-gradient-to-br from-black via-gray-900 to-blue-950 relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 px-4 sm:px-6 bg-gradient-to-br from-black via-gray-900 to-blue-950 relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(249,115,22,0.15),transparent_50%)]"></div>
       </div>
