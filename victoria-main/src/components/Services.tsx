@@ -1,7 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Services() {
   const [activeTab, setActiveTab] = useState<'owners' | 'renters'>('owners');
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const ownerServices = [
     {
@@ -69,7 +94,34 @@ export default function Services() {
     }
   ];
 
+  const ownerTakeCareOf = [
+    "Listing your property on all major rental platforms",
+    "Professional photography and virtual tours",
+    "Tenant screening and background checks",
+    "All maintenance coordination and vendor management",
+    "Monthly rent collection and financial reporting",
+    "Lease renewals and legal documentation",
+    "Emergency response 24/7/365",
+    "Property inspections and condition reports",
+    "Eviction proceedings if necessary",
+    "Market analysis and rent optimization"
+  ];
+
+  const renterTakeCareOf = [
+    "Finding quality rental properties in your area",
+    "Coordinating property viewings and tours",
+    "Processing rental applications efficiently",
+    "All maintenance requests and repairs",
+    "Clear communication and updates",
+    "Lease documentation and move-in process",
+    "24/7 emergency support line",
+    "Property walkthroughs and orientation",
+    "Renewal options and lease management",
+    "Resolving any property-related issues"
+  ];
+
   const services = activeTab === 'owners' ? ownerServices : renterServices;
+  const takeCareOfList = activeTab === 'owners' ? ownerTakeCareOf : renterTakeCareOf;
 
   return (
     <section id="services" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-black via-gray-900 to-blue-950 relative overflow-hidden">
@@ -111,7 +163,7 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
             <div
               key={index}
@@ -128,6 +180,59 @@ export default function Services() {
               </p>
             </div>
           ))}
+        </div>
+
+        <div ref={sectionRef} className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="bg-gradient-to-br from-gray-900/50 to-blue-950/30 backdrop-blur-sm p-8 rounded-lg border border-orange-500/20">
+            <h3 className="text-2xl font-semibold mb-6 text-white">Things We Take Care Of</h3>
+            <ul className="space-y-3">
+              {takeCareOfList.map((item, index) => (
+                <li
+                  key={index}
+                  className={`text-gray-300 flex items-start transition-all duration-500 ${
+                    isVisible
+                      ? 'opacity-100 translate-x-0'
+                      : 'opacity-0 -translate-x-8'
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  <span className="text-orange-500 mr-3 mt-1">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="bg-gradient-to-br from-gray-900/50 to-blue-950/30 backdrop-blur-sm p-8 rounded-lg border border-orange-500/20">
+            <h3 className="text-2xl font-semibold mb-6 text-white">What You Need to Worry About Working With Us</h3>
+            <ul className="space-y-3">
+              {[...Array(8)].map((_, index) => (
+                <li
+                  key={index}
+                  className={`text-gray-400 flex items-start transition-all duration-500 ${
+                    isVisible
+                      ? 'opacity-100 translate-x-0'
+                      : 'opacity-0 -translate-x-8'
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  <span className="text-gray-600 mr-3 mt-1">•</span>
+                  <span className="invisible">placeholder</span>
+                </li>
+              ))}
+              <li
+                className={`text-orange-400 font-medium flex items-start transition-all duration-500 ${
+                  isVisible
+                    ? 'opacity-100 translate-x-0'
+                    : 'opacity-0 -translate-x-8'
+                }`}
+                style={{ transitionDelay: '800ms' }}
+              >
+                <span className="text-orange-500 mr-3 mt-1">→</span>
+                <span>I think you get the idea</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
