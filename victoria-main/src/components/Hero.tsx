@@ -6,7 +6,7 @@ export default function Hero() {
   useEffect(() => {
     if (svgRef.current) {
       const paths = svgRef.current.querySelectorAll('path');
-      const baseSpeed = 0.002;
+      const baseSpeed = 0.001;
       let totalDelay = 0;
 
       paths.forEach((path) => {
@@ -27,11 +27,14 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-blue-950 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(249,115,22,0.1),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(30,58,138,0.15),transparent_50%)]"></div>
-      </div>
+    <section className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/1ecddf3aa6eb37292ca5dd8e756684b3-cc_ft_960.jpg)',
+        }}
+      ></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-blue-950/80"></div>
 
       <div className="relative z-10 text-center px-4 sm:px-6 py-16 sm:py-20 max-w-5xl">
         <div className="mb-12 flex justify-center">
@@ -59,11 +62,7 @@ export default function Hero() {
           ELEPHAS Property Management
         </h2>
 
-        <div className="w-24 h-1 bg-orange-500 mx-auto mb-6"></div>
-
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto mb-8 font-light drop-shadow-lg px-4">
-          Tailored Property Management Solutions in Billings, Montana
-        </p>
+        <div className="w-24 h-1 bg-orange-500 mx-auto mb-8"></div>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center text-gray-100 text-sm sm:text-base">
           <a href="tel:4062726568" className="hover:text-orange-400 transition-colors flex items-center gap-2 drop-shadow-lg">

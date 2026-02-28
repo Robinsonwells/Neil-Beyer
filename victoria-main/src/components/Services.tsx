@@ -33,13 +33,17 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 text-center text-gray-900">
+    <section id="services" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-black via-gray-900 to-blue-950 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(249,115,22,0.15),transparent_50%)]"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 text-center text-white">
           Our Services
         </h2>
         <div className="w-24 h-1 bg-orange-500 mx-auto mb-4"></div>
-        <p className="text-center text-gray-600 max-w-3xl mx-auto mb-16 text-lg">
+        <p className="text-center text-gray-300 max-w-3xl mx-auto mb-16 text-lg">
           Comprehensive property management solutions tailored to your unique needs
         </p>
 
@@ -47,15 +51,15 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-gradient-to-br from-gray-50 to-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-300"
+              className="group bg-gradient-to-br from-gray-900/50 to-blue-950/30 backdrop-blur-sm p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 border border-orange-500/20 hover:border-orange-500/50"
             >
               <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-orange-600 transition-colors">
+              <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-orange-400 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-300 leading-relaxed">
                 {service.description}
               </p>
             </div>
