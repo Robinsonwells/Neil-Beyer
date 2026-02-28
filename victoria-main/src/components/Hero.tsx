@@ -31,7 +31,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/1ecddf3aa6eb37292ca5dd8e756684b3-cc_ft_960.jpg)',
+          backgroundImage: 'url(/modern-house-with-second-floor-42ybdl6n3nxr2u6t.jpg)',
         }}
       ></div>
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-blue-950/80"></div>
